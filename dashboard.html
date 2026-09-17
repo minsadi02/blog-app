@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BlogSpace | Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<nav class="navbar">
+
+    <div class="logo">
+        Blog<span>Space</span>
+    </div>
+
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="dashboard.html" class="active">Dashboard</a>
+        <a href="create-blog.html" class="register-btn">
+            + Create Blog
+        </a>
+    </div>
+
+</nav>
+
+
+<!-- ================= DASHBOARD ================= -->
+
+<main class="dashboard">
+
+    <!-- Welcome Area -->
+
+    <section class="dashboard-header">
+
+        <div>
+
+            <span class="dashboard-label">
+                ✨ CREATOR DASHBOARD
+            </span>
+
+            <h1>
+                Welcome back,
+                <span>Blogger!</span>
+            </h1>
+
+            <p>
+                Manage your stories and share your ideas
+                with the BlogSpace community.
+            </p>
+
+        </div>
+
+        <a href="create-blog.html" class="dashboard-create-btn">
+            + Create New Blog
+        </a>
+
+    </section>
+
+
+    <!-- ================= STATISTICS ================= -->
+
+    <section class="stats-container">
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                📝
+            </div>
+
+            <div>
+                <p>Total Blogs</p>
+                <h2>3</h2>
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                👁️
+            </div>
+
+            <div>
+                <p>Total Views</p>
+                <h2>1,248</h2>
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                ❤️
+            </div>
+
+            <div>
+                <p>Total Likes</p>
+                <h2>326</h2>
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                💬
+            </div>
+
+            <div>
+                <p>Comments</p>
+                <h2>48</h2>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= MY BLOGS ================= -->
+
+    <section class="my-blogs">
+
+        <div class="dashboard-section-title">
+
+            <div>
+
+                <span>YOUR CONTENT</span>
+
+                <h2>My Blogs</h2>
+
+                <p>
+                    Manage and update your published stories.
+                </p>
+
+            </div>
+
+            <a href="create-blog.html">
+                + New Blog
+            </a>
+
+        </div>
+
+
+        <!-- BLOG 1 -->
+
+        <article class="dashboard-blog-card">
+
+            <div class="dashboard-blog-image technology">
+                💻
+            </div>
+
+            <div class="dashboard-blog-content">
+
+                <span class="dashboard-category">
+                    Technology
+                </span>
+
+                <h3>
+                    Getting Started with Web Development
+                </h3>
+
+                <p>
+                    Learn how HTML, CSS and JavaScript
+                    work together to create modern websites.
+                </p>
+
+                <div class="blog-information">
+
+                    <span>📅 Sep 17, 2026</span>
+
+                    <span>👁️ 520 views</span>
+
+                    <span>❤️ 124 likes</span>
+
+                </div>
+
+            </div>
+
+
+            <div class="dashboard-actions">
+
+                <button
+                    class="edit-btn"
+                    onclick="editBlog('Getting Started with Web Development')"
+                >
+                    ✏️ Edit
+                </button>
+
+                <button
+                    class="delete-btn"
+                    onclick="deleteBlog(this)"
+                >
+                    🗑 Delete
+                </button>
+
+            </div>
+
+        </article>
+
+
+        <!-- BLOG 2 -->
+
+        <article class="dashboard-blog-card">
+
+            <div class="dashboard-blog-image travel">
+                🌴
+            </div>
+
+            <div class="dashboard-blog-content">
+
+                <span class="dashboard-category">
+                    Travel
+                </span>
+
+                <h3>
+                    Discover the Beauty of Sri Lanka
+                </h3>
+
+                <p>
+                    Explore beautiful mountains, beaches
+                    and unforgettable destinations in Sri Lanka.
+                </p>
+
+                <div class="blog-information">
+
+                    <span>📅 Sep 15, 2026</span>
+
+                    <span>👁️ 428 views</span>
+
+                    <span>❤️ 112 likes</span>
+
+                </div>
+
+            </div>
+
+
+            <div class="dashboard-actions">
+
+                <button
+                    class="edit-btn"
+                    onclick="editBlog('Discover the Beauty of Sri Lanka')"
+                >
+                    ✏️ Edit
+                </button>
+
+                <button
+                    class="delete-btn"
+                    onclick="deleteBlog(this)"
+                >
+                    🗑 Delete
+                </button>
+
+            </div>
+
+        </article>
+
+
+        <!-- BLOG 3 -->
+
+        <article class="dashboard-blog-card">
+
+            <div class="dashboard-blog-image ai">
+                🤖
+            </div>
+
+            <div class="dashboard-blog-content">
+
+                <span class="dashboard-category">
+                    Artificial Intelligence
+                </span>
+
+                <h3>
+                    How AI Is Changing Our Future
+                </h3>
+
+                <p>
+                    Artificial intelligence is transforming
+                    how people work, communicate and learn.
+                </p>
+
+                <div class="blog-information">
+
+                    <span>📅 Sep 12, 2026</span>
+
+                    <span>👁️ 300 views</span>
+
+                    <span>❤️ 90 likes</span>
+
+                </div>
+
+            </div>
+
+
+            <div class="dashboard-actions">
+
+                <button
+                    class="edit-btn"
+                    onclick="editBlog('How AI Is Changing Our Future')"
+                >
+                    ✏️ Edit
+                </button>
+
+                <button
+                    class="delete-btn"
+                    onclick="deleteBlog(this)"
+                >
+                    🗑 Delete
+                </button>
+
+            </div>
+
+        </article>
+
+    </section>
+
+</main>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div class="copyright">
+        © 2026 BlogSpace. All Rights Reserved.
+    </div>
+
+</footer>
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+function deleteBlog(button) {
+
+    const confirmation = confirm(
+        "Are you sure you want to delete this blog?"
+    );
+
+    if (confirmation) {
+
+        const blogCard =
+            button.closest(".dashboard-blog-card");
+
+        blogCard.remove();
+
+        alert("Blog deleted successfully!");
+
+    }
+}
+
+
+function editBlog(blogTitle) {
+
+    alert(
+        "Edit feature selected for: " + blogTitle
+    );
+
+}
+
+</script>
+
+</body>
+
+</html>

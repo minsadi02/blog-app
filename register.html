@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BlogSpace | Register</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+
+        <div class="logo">
+            Blog<span>Space</span>
+        </div>
+
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="index.html#blogs">Blogs</a>
+            <a href="login.html">Login</a>
+            <a href="register.html" class="register-btn">Get Started</a>
+        </div>
+
+    </nav>
+
+
+    <!-- REGISTER SECTION -->
+    <section class="auth-section">
+
+        <!-- LEFT SIDE -->
+        <div class="auth-info">
+
+            <span class="auth-label">
+                ✨ JOIN BLOGSPACE
+            </span>
+
+            <h1>
+                Start sharing your
+                <span>story.</span>
+            </h1>
+
+            <p>
+                Create your free BlogSpace account and
+                start publishing your ideas, experiences
+                and knowledge with the world.
+            </p>
+
+            <div class="auth-features">
+
+                <div class="feature">
+                    <div class="feature-icon">✍️</div>
+
+                    <div>
+                        <h3>Write your stories</h3>
+                        <p>Create and publish your own blog posts.</p>
+                    </div>
+                </div>
+
+
+                <div class="feature">
+                    <div class="feature-icon">🌎</div>
+
+                    <div>
+                        <h3>Share with everyone</h3>
+                        <p>Let people discover your ideas.</p>
+                    </div>
+                </div>
+
+
+                <div class="feature">
+                    <div class="feature-icon">💡</div>
+
+                    <div>
+                        <h3>Inspire others</h3>
+                        <p>Turn your knowledge into meaningful stories.</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- RIGHT SIDE REGISTER FORM -->
+        <div class="auth-card">
+
+            <div class="auth-card-header">
+
+                <div class="auth-icon">
+                    ✨
+                </div>
+
+                <h2>Create Account</h2>
+
+                <p>
+                    Join our creative community today.
+                </p>
+
+            </div>
+
+
+            <form id="registerForm">
+
+                <!-- NAME -->
+                <div class="form-group">
+
+                    <label for="name">
+                        Full Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        placeholder="Enter your full name"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- EMAIL -->
+                <div class="form-group">
+
+                    <label for="email">
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="example@email.com"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- PASSWORD -->
+                <div class="form-group">
+
+                    <label for="password">
+                        Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Create a password"
+                        minlength="6"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- CONFIRM PASSWORD -->
+                <div class="form-group">
+
+                    <label for="confirmPassword">
+                        Confirm Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="confirmPassword"
+                        placeholder="Enter password again"
+                        minlength="6"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- TERMS -->
+                <div class="terms">
+
+                    <input
+                        type="checkbox"
+                        id="terms"
+                        required
+                    >
+
+                    <label for="terms">
+                        I agree to the Terms & Conditions.
+                    </label>
+
+                </div>
+
+
+                <!-- REGISTER BUTTON -->
+                <button
+                    type="submit"
+                    class="auth-button"
+                >
+                    Create Account →
+                </button>
+
+            </form>
+
+
+            <div class="auth-bottom">
+
+                <p>
+                    Already have an account?
+                    <a href="login.html">
+                        Sign In
+                    </a>
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <div class="copyright">
+            © 2026 BlogSpace. All Rights Reserved.
+        </div>
+
+    </footer>
+
+
+    <!-- SIMPLE JAVASCRIPT -->
+  <script>
+
+const registerForm =
+    document.getElementById("registerForm");
+
+registerForm.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    const name =
+        document.getElementById("name").value.trim();
+
+    const email =
+        document.getElementById("email").value.trim();
+
+    const password =
+        document.getElementById("password").value;
+
+    const confirmPassword =
+        document.getElementById("confirmPassword").value;
+
+
+    if (password !== confirmPassword) {
+
+        alert("Passwords do not match!");
+
+        return;
+    }
+
+
+    /* SAVE USER */
+
+    const user = {
+        name: name,
+        email: email,
+        password: password
+    };
+
+
+    localStorage.setItem(
+        "blogUser",
+        JSON.stringify(user)
+    );
+
+
+    alert(
+        "Account created successfully! Please login."
+    );
+
+
+    window.location.href = "login.html";
+
+});
+
+</script>
+
+</body>
+
+</html>

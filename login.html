@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BlogSpace | Login</title>
+
+    <!-- CSS Connection -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            Blog<span>Space</span>
+        </div>
+
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="index.html#blogs">Blogs</a>
+            <a href="login.html" class="active">Login</a>
+            <a href="register.html" class="register-btn">
+                Get Started
+            </a>
+        </div>
+
+    </nav>
+
+
+    <!-- ================= LOGIN SECTION ================= -->
+
+    <section class="auth-section login-section">
+
+        <!-- LEFT SIDE -->
+
+        <div class="auth-info">
+
+            <span class="auth-label">
+                👋 WELCOME BACK
+            </span>
+
+            <h1>
+                Continue your
+                <span>story.</span>
+            </h1>
+
+            <p>
+                Sign in to your BlogSpace account to manage
+                your blogs, create new stories and continue
+                sharing your ideas with the world.
+            </p>
+
+
+            <!-- FEATURES -->
+
+            <div class="auth-features">
+
+                <div class="feature">
+
+                    <div class="feature-icon">
+                        📝
+                    </div>
+
+                    <div>
+                        <h3>Manage Your Blogs</h3>
+
+                        <p>
+                            View, edit and manage your published stories.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="feature">
+
+                    <div class="feature-icon">
+                        ✨
+                    </div>
+
+                    <div>
+                        <h3>Create New Stories</h3>
+
+                        <p>
+                            Turn your ideas into meaningful blog posts.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="feature">
+
+                    <div class="feature-icon">
+                        🌎
+                    </div>
+
+                    <div>
+                        <h3>Share Your Ideas</h3>
+
+                        <p>
+                            Connect with readers around the world.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= LOGIN CARD ================= -->
+
+        <div class="auth-card login-card">
+
+            <div class="auth-card-header">
+
+                <div class="auth-icon">
+                    👤
+                </div>
+
+                <h2>Welcome Back</h2>
+
+                <p>
+                    Enter your details to access your account.
+                </p>
+
+            </div>
+
+
+            <!-- LOGIN FORM -->
+
+            <form id="loginForm">
+
+                <!-- EMAIL -->
+
+                <div class="form-group">
+
+                    <label for="email">
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="example@email.com"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- PASSWORD -->
+
+                <div class="form-group">
+
+                    <label for="password">
+                        Password
+                    </label>
+
+                    <div class="password-box">
+
+                        <input
+                            type="password"
+                            id="password"
+                            placeholder="Enter your password"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            class="show-password"
+                            onclick="showPassword()"
+                            id="passwordButton"
+                        >
+                            Show
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- REMEMBER / FORGOT -->
+
+                <div class="login-options">
+
+                    <label class="remember-me">
+
+                        <input
+                            type="checkbox"
+                            id="remember"
+                        >
+
+                        Remember me
+
+                    </label>
+
+
+                    <a href="#">
+                        Forgot Password?
+                    </a>
+
+                </div>
+
+
+                <!-- LOGIN BUTTON -->
+
+                <button
+                    type="submit"
+                    class="auth-button"
+                >
+                    Sign In →
+                </button>
+
+            </form>
+
+
+            <!-- DIVIDER -->
+
+            <div class="login-divider">
+
+                <span>OR</span>
+
+            </div>
+
+
+            <!-- DEMO ACCOUNT -->
+
+            <div class="demo-account">
+
+                <span>💡</span>
+
+                <div>
+                    <strong>Demo Login</strong>
+
+                    <p>
+                        Email: demo@blogspace.com
+                    </p>
+
+                    <p>
+                        Password: 123456
+                    </p>
+                </div>
+
+            </div>
+
+
+            <!-- REGISTER -->
+
+            <div class="auth-bottom">
+
+                <p>
+                    Don't have an account?
+
+                    <a href="register.html">
+                        Create Account
+                    </a>
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div class="copyright">
+            © 2026 BlogSpace. All Rights Reserved.
+        </div>
+
+    </footer>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script>
+
+function showPassword() {
+
+    const password =
+        document.getElementById("password");
+
+    const button =
+        document.getElementById("passwordButton");
+
+
+    if (password.type === "password") {
+
+        password.type = "text";
+        button.innerText = "Hide";
+
+    } else {
+
+        password.type = "password";
+        button.innerText = "Show";
+
+    }
+}
+
+
+/* LOGIN SYSTEM */
+
+document
+    .getElementById("loginForm")
+    .addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+
+        const email =
+            document.getElementById("email")
+            .value
+            .trim();
+
+        const password =
+            document.getElementById("password")
+            .value;
+
+
+        /* GET REGISTERED USER */
+
+        const savedUser =
+            JSON.parse(
+                localStorage.getItem("blogUser")
+            );
+
+
+        if (!savedUser) {
+
+            alert(
+                "No account found. Please register first."
+            );
+
+            window.location.href =
+                "register.html";
+
+            return;
+        }
+
+
+        /* CHECK LOGIN */
+
+        if (
+            email === savedUser.email &&
+            password === savedUser.password
+        ) {
+
+            localStorage.setItem(
+                "loggedIn",
+                "true"
+            );
+
+
+            alert(
+                "Welcome " +
+                savedUser.name +
+                "!"
+            );
+
+
+            window.location.href =
+                "dashboard.html";
+
+        } else {
+
+            alert(
+                "Incorrect email or password!"
+            );
+
+        }
+
+    });
+
+</script>
+        /* LOGIN */
+
+        document
+            .getElementById("loginForm")
+            .addEventListener("submit", function(event) {
+
+                event.preventDefault();
+
+
+                const email =
+                    document.getElementById("email").value;
+
+                const password =
+                    document.getElementById("password").value;
+
+
+                /*
+                   DEMO LOGIN
+
+                   Email:
+                   demo@blogspace.com
+
+                   Password:
+                   123456
+                */
+
+
+                if (
+                    email === "demo@blogspace.com" &&
+                    password === "123456"
+                ) {
+
+                    alert("Login successful!");
+
+                    window.location.href =
+                        "dashboard.html";
+
+                }
+
+                else {
+
+                    alert(
+                        "Incorrect email or password!\n\n" +
+                        "Try:\n" +
+                        "demo@blogspace.com\n" +
+                        "Password: 123456"
+                    );
+
+                }
+
+            });
+
+    </script>
+
+</body>
+
+</html>

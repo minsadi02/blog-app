@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BlogSpace | Create Blog</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<nav class="navbar">
+
+    <div class="logo">
+        Blog<span>Space</span>
+    </div>
+
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="dashboard.html">Dashboard</a>
+
+        <a href="create-blog.html"
+           class="register-btn">
+            + Create Blog
+        </a>
+    </div>
+
+</nav>
+
+
+<!-- ================= CREATE BLOG ================= -->
+
+<main class="create-page">
+
+    <!-- PAGE HEADER -->
+
+    <section class="create-header">
+
+        <div>
+
+            <span class="create-label">
+                ✍️ CREATE A STORY
+            </span>
+
+            <h1>
+                Create New
+                <span>Blog</span>
+            </h1>
+
+            <p>
+                Share your ideas, experiences and knowledge
+                with the BlogSpace community.
+            </p>
+
+        </div>
+
+        <a href="dashboard.html"
+           class="back-dashboard">
+
+            ← Back to Dashboard
+
+        </a>
+
+    </section>
+
+
+    <!-- ================= FORM AREA ================= -->
+
+    <section class="create-container">
+
+
+        <!-- LEFT SIDE FORM -->
+
+        <div class="create-form-card">
+
+            <form id="blogForm">
+
+
+                <!-- BLOG TITLE -->
+
+                <div class="create-form-group">
+
+                    <label for="blogTitle">
+                        Blog Title
+                        <span>*</span>
+                    </label>
+
+                    <input
+                        type="text"
+                        id="blogTitle"
+                        placeholder="Enter an interesting blog title..."
+                        required
+                    >
+
+                    <small>
+                        Choose a clear and interesting title.
+                    </small>
+
+                </div>
+
+
+                <!-- CATEGORY -->
+
+                <div class="create-form-group">
+
+                    <label for="blogCategory">
+                        Category
+                        <span>*</span>
+                    </label>
+
+                    <select
+                        id="blogCategory"
+                        required
+                    >
+
+                        <option value="">
+                            Select a category
+                        </option>
+
+                        <option value="Technology">
+                            💻 Technology
+                        </option>
+
+                        <option value="Travel">
+                            ✈️ Travel
+                        </option>
+
+                        <option value="Education">
+                            🎓 Education
+                        </option>
+
+                        <option value="Career">
+                            💼 Career
+                        </option>
+
+                        <option value="Lifestyle">
+                            🎨 Lifestyle
+                        </option>
+
+                        <option value="Artificial Intelligence">
+                            🤖 Artificial Intelligence
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- DESCRIPTION -->
+
+                <div class="create-form-group">
+
+                    <label for="blogDescription">
+                        Short Description
+                    </label>
+
+                    <textarea
+                        id="blogDescription"
+                        rows="3"
+                        maxlength="180"
+                        placeholder="Write a short description about your blog..."
+                    ></textarea>
+
+                    <div class="character-count">
+
+                        <span>
+                            A short introduction to your story.
+                        </span>
+
+                        <span id="descriptionCount">
+                            0 / 180
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- BLOG IMAGE -->
+
+                <div class="create-form-group">
+
+                    <label for="blogImage">
+                        Cover Image
+                    </label>
+
+                    <div class="image-upload">
+
+                        <div class="upload-icon">
+                            🖼️
+                        </div>
+
+                        <h3>
+                            Upload Cover Image
+                        </h3>
+
+                        <p>
+                            Choose an image for your blog.
+                        </p>
+
+                        <input
+                            type="file"
+                            id="blogImage"
+                            accept="image/*"
+                        >
+
+                    </div>
+
+
+                    <!-- IMAGE PREVIEW -->
+
+                    <div
+                        class="image-preview"
+                        id="imagePreview"
+                    >
+                    </div>
+
+                </div>
+
+
+                <!-- BLOG CONTENT -->
+
+                <div class="create-form-group">
+
+                    <label for="blogContent">
+                        Blog Content
+                        <span>*</span>
+                    </label>
+
+                    <!-- Simple Toolbar -->
+
+                    <div class="editor-toolbar">
+
+                        <button
+                            type="button"
+                            onclick="insertText('**Bold Text**')"
+                        >
+                            <b>B</b>
+                        </button>
+
+                        <button
+                            type="button"
+                            onclick="insertText('*Italic Text*')"
+                        >
+                            <i>I</i>
+                        </button>
+
+                        <button
+                            type="button"
+                            onclick="insertText('## Heading')"
+                        >
+                            H
+                        </button>
+
+                        <button
+                            type="button"
+                            onclick="insertText('• List item')"
+                        >
+                            ☷
+                        </button>
+
+                    </div>
+
+                    <textarea
+                        id="blogContent"
+                        rows="13"
+                        placeholder="Start writing your amazing story here..."
+                        required
+                    ></textarea>
+
+                </div>
+
+
+                <!-- TAGS -->
+
+                <div class="create-form-group">
+
+                    <label for="blogTags">
+                        Tags
+                    </label>
+
+                    <input
+                        type="text"
+                        id="blogTags"
+                        placeholder="Example: web, technology, coding"
+                    >
+
+                    <small>
+                        Separate tags using commas.
+                    </small>
+
+                </div>
+
+
+                <!-- BUTTONS -->
+
+                <div class="create-actions">
+
+                    <button
+                        type="button"
+                        class="draft-btn"
+                        onclick="saveDraft()"
+                    >
+                        Save Draft
+                    </button>
+
+                    <button
+                        type="submit"
+                        class="publish-btn"
+                    >
+                        Publish Blog →
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+
+        <!-- ================= RIGHT SIDE ================= -->
+
+        <aside class="create-sidebar">
+
+
+            <!-- TIPS -->
+
+            <div class="create-side-card">
+
+                <div class="side-icon">
+                    💡
+                </div>
+
+                <h3>
+                    Writing Tips
+                </h3>
+
+                <ul>
+                    <li>
+                        Use a clear and interesting title.
+                    </li>
+
+                    <li>
+                        Keep paragraphs short and readable.
+                    </li>
+
+                    <li>
+                        Add a relevant cover image.
+                    </li>
+
+                    <li>
+                        Check spelling before publishing.
+                    </li>
+
+                    <li>
+                        Use categories and tags.
+                    </li>
+                </ul>
+
+            </div>
+
+
+            <!-- BLOG STATUS -->
+
+            <div class="create-side-card">
+
+                <div class="side-icon">
+                    📋
+                </div>
+
+                <h3>
+                    Blog Status
+                </h3>
+
+                <div class="status-row">
+
+                    <span>Status</span>
+
+                    <strong id="blogStatus">
+                        Draft
+                    </strong>
+
+                </div>
+
+                <div class="status-row">
+
+                    <span>Visibility</span>
+
+                    <strong>
+                        Public
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- QUICK PREVIEW -->
+
+            <div class="create-side-card">
+
+                <div class="side-icon">
+                    👀
+                </div>
+
+                <h3>
+                    Quick Preview
+                </h3>
+
+                <div class="quick-preview">
+
+                    <span id="previewCategory">
+                        Category
+                    </span>
+
+                    <h4 id="previewTitle">
+                        Your blog title will appear here
+                    </h4>
+
+                    <p id="previewDescription">
+                        Your short description will
+                        appear here as you type.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </aside>
+
+    </section>
+
+</main>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div class="copyright">
+        © 2026 BlogSpace. All Rights Reserved.
+    </div>
+
+</footer>
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+    const title =
+        document.getElementById("blogTitle");
+
+    const category =
+        document.getElementById("blogCategory");
+
+    const description =
+        document.getElementById("blogDescription");
+
+    const content =
+        document.getElementById("blogContent");
+
+
+    /* ===============================
+       LIVE TITLE PREVIEW
+    =============================== */
+
+    title.addEventListener("input", function () {
+
+        document.getElementById("previewTitle")
+            .innerText =
+            title.value ||
+            "Your blog title will appear here";
+
+    });
+
+
+    /* ===============================
+       CATEGORY PREVIEW
+    =============================== */
+
+    category.addEventListener("change", function () {
+
+        document.getElementById("previewCategory")
+            .innerText =
+            category.value || "Category";
+
+    });
+
+
+    /* ===============================
+       DESCRIPTION PREVIEW
+    =============================== */
+
+    description.addEventListener("input", function () {
+
+        document.getElementById("previewDescription")
+            .innerText =
+            description.value ||
+            "Your short description will appear here as you type.";
+
+        document.getElementById("descriptionCount")
+            .innerText =
+            description.value.length + " / 180";
+
+    });
+
+
+    /* ===============================
+       IMAGE PREVIEW
+    =============================== */
+
+    document.getElementById("blogImage")
+        .addEventListener("change", function () {
+
+            const file = this.files[0];
+
+            if (file) {
+
+                const reader =
+                    new FileReader();
+
+                reader.onload =
+                    function (event) {
+
+                        document
+                            .getElementById("imagePreview")
+                            .innerHTML =
+                            `<img src="${event.target.result}"
+                            alt="Blog Cover Preview">`;
+
+                    };
+
+                reader.readAsDataURL(file);
+
+            }
+
+        });
+
+
+    /* ===============================
+       EDITOR BUTTON
+    =============================== */
+
+    function insertText(text) {
+
+        const textarea =
+            document.getElementById("blogContent");
+
+        const start =
+            textarea.selectionStart;
+
+        const end =
+            textarea.selectionEnd;
+
+        textarea.value =
+            textarea.value.substring(0, start) +
+            text +
+            textarea.value.substring(end);
+
+        textarea.focus();
+
+    }
+
+
+    /* ===============================
+       SAVE DRAFT
+    =============================== */
+
+    function saveDraft() {
+
+        if (title.value.trim() === "") {
+
+            alert(
+                "Please enter a blog title before saving."
+            );
+
+            return;
+
+        }
+
+        document.getElementById("blogStatus")
+            .innerText = "Saved Draft";
+
+        alert(
+            "Your blog has been saved as a draft!"
+        );
+
+    }
+
+
+    /* ===============================
+       PUBLISH BLOG
+    =============================== */
+
+    document.getElementById("blogForm")
+        .addEventListener(
+            "submit",
+            function (event) {
+
+                event.preventDefault();
+
+
+                if (
+                    title.value.trim() === "" ||
+                    category.value === "" ||
+                    content.value.trim() === ""
+                ) {
+
+                    alert(
+                        "Please complete all required fields."
+                    );
+
+                    return;
+
+                }
+
+
+                alert(
+                    "Blog published successfully!"
+                );
+
+
+                window.location.href =
+                    "dashboard.html";
+
+            }
+        );
+
+</script>
+
+</body>
+
+</html>
